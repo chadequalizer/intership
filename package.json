@@ -1,5 +1,5 @@
 {
-  "name": "newapp",
+  "name": "projectP",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
