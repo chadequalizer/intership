@@ -1,0 +1,17 @@
+
+default: &default
+  adapter: posgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: development_psql
+
+test:
+  <<: *default
+  database: test_psql
+
+production:
+  <<: *default
+  database: production_psql
