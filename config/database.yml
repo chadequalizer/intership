@@ -6,12 +6,12 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.psql
+  database: development_psql
 
 test:
   <<: *default
-  database: db/test.psql
+  database: test_psql
 
 production:
   <<: *default
-  database: db/production.psql
+  database: production_psql
