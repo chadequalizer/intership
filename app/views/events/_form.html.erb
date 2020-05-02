@@ -1,0 +1,45 @@
+<%= form_with scope: :event, url: events_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :location %><br>
+    <%= form.text_field :location %>
+  </p>
+
+  <p>
+    <%= form.label(:starttime, "Start time") %><br>
+    <%= form.datetime_select :starttime %>
+  </p>
+
+  <p>
+    <%= form.label(:endtime, "End Time") %><br>
+    <%= form.datetime_select :endtime %>
+  </p>
+  
+  <p>
+    <%= form.label(:organizeremail, "Organizer E-mail") %><br>
+    <%= form.text_field :organizeremail %>
+  </p>
+  
+  <p>
+    <%= form.label(:organizertelegram, "Organizer Telegram") %><br>
+    <%= form.text_field :organizertelegram %>
+  </p>
+  
+  <p>
+    <%= form.label :link %><br>
+    <%= form.text_field :link %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
