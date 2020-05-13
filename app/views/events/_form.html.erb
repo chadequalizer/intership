@@ -1,45 +1,11 @@
-<%= form_with scope: :event, url: events_path, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
-
-  <p>
-    <%= form.label :location %><br>
-    <%= form.text_field :location %>
-  </p>
-
-  <p>
-    <%= form.label(:starttime, "Start time") %><br>
-    <%= form.datetime_select :starttime %>
-  </p>
-
-  <p>
-    <%= form.label(:endtime, "End Time") %><br>
-    <%= form.datetime_select :endtime %>
-  </p>
-  
-  <p>
-    <%= form.label(:organizeremail, "Organizer E-mail") %><br>
-    <%= form.text_field :organizeremail %>
-  </p>
-  
-  <p>
-    <%= form.label(:organizertelegram, "Organizer Telegram") %><br>
-    <%= form.text_field :organizertelegram %>
-  </p>
-  
-  <p>
-    <%= form.label :link %><br>
-    <%= form.text_field :link %>
-  </p>
-  
-  <p>
-    <%= form.submit %>
-  </p>
+<%= simple_form_for @event do |f| %>
+<%= f.input :title, label: 'Title' %>
+<%= f.input :description, label: 'Description', as: :text%>
+<%= f.input :location, label: 'Location' %>
+<%= f.input :start_time, label: 'Start Time', as: :datetime %>
+<%= f.input :end_time, label: 'End Time', as: :datetime %>
+<%= f.input :organizer_email, label: 'Organizer Email' %>
+<%= f.input :organizer_telegram, label: 'Organizer Telegram' %>
+<%= f.input :link, label: 'Link' %>
+<%= f.button :submit %>
 <% end %>

@@ -1,42 +1,42 @@
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('events.index.title') %>:</strong>
   <%= @event.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t('events.index.description') %>:</strong>
   <%= @event.description %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong><%= t('events.index.location') %>:</strong>
   <%= @event.location %>
 </p>
 
 <p>
-  <strong>Start Time:</strong>
-  <%= @event.starttime %>
+  <strong><%= t('events.index.start_time') %>:</strong>
+  <%= @event.start_time %>
 </p>
 
 <p>
-  <strong>End Time:</strong>
-  <%= @event.endtime %>
+  <strong><%= t('events.index.end_time') %>:</strong>
+  <%= @event.end_time %>
 </p>
 
 <p>
-  <strong>Organizer Email:</strong>
-  <%= @event.organizeremail %>
+  <strong><%= t('events.index.organizer_email') %>:</strong>
+  <%= @event.organizer_email %>
 </p>
 
 <p>
-  <strong>Organizer Telegram:</strong>
-  <%= @event.organizertelegram %>
+  <strong><%= t('events.index.oeganizer_telegram') %>:</strong>
+  <%= @event.organizer_telegram %>
 </p>
 
 <p>
-  <strong>Link:</strong>
+  <strong><%= t('events.index.link') %>:</strong>
   <%= @event.link %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> 
-<%= link_to 'Back', events_path %>
+<%= link_to t('events.button.edit'), edit_event_path(@event) %> 
+<%= link_to t('events.button.back'), events_path %>

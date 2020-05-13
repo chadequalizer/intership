@@ -4,10 +4,10 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.text :description
       t.string :location
-      t.datetime :starttime
-      t.datetime :endtime
-      t.string :organizeremail
-      t.string :organizertelegram
+      t.datetime :start_time
+      t.datetime :end_time
+      t.string :organizer_email
+      t.string :organizer_telegram
       t.string :link
 
       t.timestamps
