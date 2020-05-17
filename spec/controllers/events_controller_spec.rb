@@ -45,7 +45,7 @@ RSpec.describe EventsController do
 
   describe 'GET #edit' do
     let(:attrs) { attributes_for(:event) }
-    before { post :create, params: { event: attrs} }
+    let!(:event) { create(:event) }
 
     it 'renders #edit form' do
       get :edit, params: { id: Event.last.id } 
@@ -56,7 +56,7 @@ RSpec.describe EventsController do
   describe 'PATCH #update' do
     context 'valid attributes' do
       let(:attrs) { attributes_for(:event, :valid_edit) }
-      before { post :create, params: { event: attributes_for(:event) } }
+      let!(:event) { create(:event) }
 
       it 'updates event' do
         patch :update, params: { id: Event.last.id, event: attrs }
@@ -72,7 +72,7 @@ RSpec.describe EventsController do
 
     context 'invalid attributes' do
       let(:attrs) { attributes_for(:event, :invalid) }
-      before { post :create, params: { event: attributes_for(:event) } } 
+      let!(:event) { create(:event) }
 
       it 'render edit form' do
         patch :update, params: { id: Event.last.id, event: attrs }

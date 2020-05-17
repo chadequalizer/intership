@@ -3,14 +3,14 @@
 
 <table>
   <tr>
-    <th><%= t('events.index.title') %></th>
-    <th><%= t('events.index.description') %></th>
-    <th><%= t('events.index.location') %></th>
-    <th><%= t('events.index.start_time') %></th>
-    <th><%= t('events.index.end_time') %></th>
-    <th><%= t('events.index.organizer_email') %></th>
-    <th><%= t('events.index.organizer_telegram') %></th>
-    <th><%= t('events.index.link') %></th>
+    <th><%= t('simple_form.labels.title') %></th>
+    <th><%= t('simple_form.labels.description') %></th>
+    <th><%= t('simple_form.labels.location') %></th>
+    <th><%= t('simple_form.labels.start_time') %></th>
+    <th><%= t('simple_form.labels.end_time') %></th>
+    <th><%= t('simple_form.labels.organizer_email') %></th>
+    <th><%= t('simple_form.labels.organizer_telegram') %></th>
+    <th><%= t('simple_form.labels.link') %></th>
     <th></th>
   </tr>
 
@@ -23,7 +23,7 @@
       <td><%= event.end_time %></td>
       <td><%= event.organizer_email %></td>
       <td><%= event.organizer_telegram %></td>
-      <td><%= event.link %></td>
+      <td><%= link_to event.link, event.link %></td>
       <td><%= link_to t('events.button.show'), event_path(event) %></td>
       <td><%= link_to t('events.button.edit'), edit_event_path(event) %></td>
       <td><%= button_to t('events.button.delete'), event_path(event),
