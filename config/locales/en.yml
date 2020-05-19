@@ -1,3 +1,33 @@
-
 en:
-  hello: "Hello world"
+  events:
+    button:
+      show: Show
+      edit: Edit
+      delete: Delete
+      new: New Event
+      back: Back
+    header:
+      edit: Edit Event
+      new: New Event
+      all: All events
+    notice:
+      delete: Event deleted
+      edit: Event edited
+      new: Event created
+  activerecord:
+    errors:
+      messages:
+        invalid_email: Must be given
+        invalid_email: Invalid email adress
+        invalid_telegram: Invalid telegram
+        start_before_end: Must be before End Time
+  simple_form:
+    labels:
+      title: Title
+      description: Description
+      location: Location
+      start_time: Start time
+      end_itme: End time
+      organizer_email: Organizer email
+      organizer_telegram: Organizer telegram
+      link: Link

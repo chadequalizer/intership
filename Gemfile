@@ -13,10 +13,15 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 4.4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jquery-rails', '~> 4.3.5'
+gem 'simple_form'
+gem 'rails-i18n'
+gem 'kaminari'
+gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
