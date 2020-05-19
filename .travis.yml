@@ -6,6 +6,10 @@ before_script:
 addons:
   postgresql: "12.2"
   apt:
-          packages:
-            - postgresql-12
-            - postgresql-client-12
+    packages:
+      - postgresql-12
+      - postgresql-client-12
+env:
+  global:
+        - PGVER=12
+        - PGPORT=5433
