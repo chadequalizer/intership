@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'rails-i18n'
 gem 'kaminari'
 gem 'rails-controller-testing'
+gem 'rubocop', require: false
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
