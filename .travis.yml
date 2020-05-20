@@ -1,7 +1,7 @@
 language: ruby
 services: 
   - postgresql
-before_install:
+before_script:
   - psql -c 'create database travis_ci_test;'
   - cp config/database.yml.travis config/database.yml
 addons:
@@ -10,6 +10,10 @@ addons:
     packages:
       - postgresql-12
       - postgresql-client-12
+script: 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
 env:
   global:
         - PGVER=12
