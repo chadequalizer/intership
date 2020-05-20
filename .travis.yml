@@ -2,7 +2,7 @@ language: ruby
 services: 
   - postgresql
 before_install:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database travis_ci_test;'
   - cp config/database.yml.travis config/database.yml
 addons:
   postgresql: "12"
