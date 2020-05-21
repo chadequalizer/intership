@@ -1,18 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  subject { build(:event)}
+  subject { build(:event) }
 
-  it "is valid with valid" do
+  it 'is valid with valid' do
     expect(subject).to be_valid
   end
 
-  it "is not valid without title" do
+  it 'is not valid without title' do
     subject.title = nil
     expect(subject).to_not be_valid
   end
 
-  it "start time less than end time" do
+  it 'start time less than end time' do
     subject.end_time = Time.now
     expect(subject).to_not be_valid
   end

@@ -1,6 +1,8 @@
 SimpleForm.setup do |config|
   config.wrappers :default, class: :input,
-    hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
+                            hint_class: :field_with_hint,
+                            error_class: :field_with_errors,
+                            valid_class: :field_without_errors do |b|
     b.use :html5
 
     b.use :placeholder
@@ -18,7 +20,6 @@ SimpleForm.setup do |config|
     b.use :label_input
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
-
   end
 
   config.default_wrapper = :default
@@ -34,5 +35,4 @@ SimpleForm.setup do |config|
   config.browser_validations = false
 
   config.boolean_label_class = 'checkbox'
-
 end

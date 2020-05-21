@@ -1,6 +1,6 @@
 AllCops:
   Exclude:
-    - db/**
+    - db/**/*
     - vendor/**/*
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -8,3 +8,6 @@ Style/Documentation:
   Enabled: false
 Style/SymbolArray:
   EnforcedStyle: brackets
+Metrics/BlockLength:
+  Exclude:
+    - spec/controllers/events_controller_spec.rb
