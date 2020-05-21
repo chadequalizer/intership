@@ -11,7 +11,7 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 4.4.1'
-#gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jquery-rails', '~> 4.3.5'
 gem 'simple_form'
 gem 'rails-i18n'
