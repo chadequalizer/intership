@@ -13,6 +13,7 @@ addons:
 script: 
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
+  - bundle exec rubocop
   - bundle exec rspec
 env:
   global:

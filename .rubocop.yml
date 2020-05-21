@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - db/**
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/SymbolArray:
+  EnforcedStyle: brackets
