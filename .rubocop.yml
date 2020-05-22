@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - db/**/*
     - vendor/**/*
+    - node_modules/**/*
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:

@@ -1,4 +1,7 @@
 require 'spec_helper'
+require 'simplecov'
+
+SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 if Rails.env.production?
