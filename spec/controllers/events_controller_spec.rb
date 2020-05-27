@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe EventsController do
-
   describe 'GET #index' do
-    it 'render index' do 
+    it 'render index' do
       get :index
       expect(response).to render_template('index')
     end
@@ -22,7 +21,7 @@ RSpec.describe EventsController do
 
       it 'creates new event' do
         expect do
-          post :create, params: { event: attrs}
+          post :create, params: { event: attrs }
         end.to change(Event.all, :count).by(1)
       end
 
@@ -48,7 +47,7 @@ RSpec.describe EventsController do
     let!(:event) { create(:event) }
 
     it 'renders #edit form' do
-      get :edit, params: { id: Event.last.id } 
+      get :edit, params: { id: Event.last.id }
       expect(response).to render_template('edit')
     end
   end
@@ -82,7 +81,7 @@ RSpec.describe EventsController do
   end
 
   describe 'DELETE #destroy' do
-    before { post :create, params: { event: attributes_for(:event) } } 
+    before { post :create, params: { event: attributes_for(:event) } }
 
     it 'deletes event' do
       expect do
