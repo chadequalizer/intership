@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-  validates :title, presence: { message: :invalid_email }
+  belongs_to :user
+  validates :title, presence: { message: :invalid_title }
   validates :organizer_email, format: {
     with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i,
     message: :invalid_email

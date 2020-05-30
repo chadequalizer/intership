@@ -1,5 +1,7 @@
 require 'spec_helper'
 require 'simplecov'
+require 'devise'
+require_relative 'support/controller_macros'
 
 SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
@@ -24,4 +26,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryBot::Syntax::Methods
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.extend ControllerMacros, :type => :controller
 end

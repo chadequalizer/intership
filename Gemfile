@@ -5,10 +5,12 @@ ruby '2.6.3'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.4.1'
+gem 'devise'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.3.5'
 gem 'kaminari'
 gem 'pg', '~> 1.2.3'
+gem 'pry', '~> 0.12.2'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'rails-controller-testing'

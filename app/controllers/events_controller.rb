@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: t('events.notice.new')
@@ -52,6 +52,6 @@ class EventsController < ApplicationController
                                   :end_time,
                                   :organizer_email,
                                   :organizer_telegram,
-                                  :link)
+                                  :link,)
   end
 end

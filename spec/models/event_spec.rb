@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  subject { build(:event) }
+  let!(:user) {create(:user) }
+  subject { build(:event, user: user) }
 
   it 'is valid with valid' do
     expect(subject).to be_valid

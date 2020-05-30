@@ -1,6 +1,8 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe EventsController do
+
   describe 'GET #index' do
     it 'render index' do
       get :index
@@ -16,9 +18,10 @@ RSpec.describe EventsController do
   end
 
   describe 'POST #create' do
+    login_user
     context 'valid attributes' do
       let(:attrs) { attributes_for(:event) }
-
+      
       it 'creates new event' do
         expect do
           post :create, params: { event: attrs }
@@ -44,7 +47,8 @@ RSpec.describe EventsController do
 
   describe 'GET #edit' do
     let(:attrs) { attributes_for(:event) }
-    let!(:event) { create(:event) }
+    let!(:user) {create(:user) }
+    let!(:event) { create(:event, user: user) }
 
     it 'renders #edit form' do
       get :edit, params: { id: Event.last.id }
@@ -55,7 +59,8 @@ RSpec.describe EventsController do
   describe 'PATCH #update' do
     context 'valid attributes' do
       let(:attrs) { attributes_for(:event, :valid_edit) }
-      let!(:event) { create(:event) }
+      let!(:user) {create(:user) }
+      let!(:event) { create(:event, user: user) }
 
       it 'updates event' do
         patch :update, params: { id: Event.last.id, event: attrs }
@@ -71,7 +76,8 @@ RSpec.describe EventsController do
 
     context 'invalid attributes' do
       let(:attrs) { attributes_for(:event, :invalid) }
-      let!(:event) { create(:event) }
+      let!(:user) {create(:user) }
+      let!(:event) { create(:event, user: user) }
 
       it 'render edit form' do
         patch :update, params: { id: Event.last.id, event: attrs }
@@ -81,6 +87,7 @@ RSpec.describe EventsController do
   end
 
   describe 'DELETE #destroy' do
+    login_user
     before { post :create, params: { event: attributes_for(:event) } }
 
     it 'deletes event' do

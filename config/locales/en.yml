@@ -6,6 +6,8 @@ en:
       delete: Delete
       new: New Event
       back: Back
+      sign_in_up: Sign in/Sign Up
+      sign_out: Sign Out
     header:
       edit: Edit Event
       new: New Event
@@ -17,7 +19,7 @@ en:
   activerecord:
     errors:
       messages:
-        invalid_email: Must be given
+        invalid_title: Must be given
         invalid_email: Invalid email adress
         invalid_telegram: Invalid telegram
         start_before_end: Must be before End Time
