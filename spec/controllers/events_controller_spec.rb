@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe EventsController do
-
   describe 'GET #index' do
     it 'render index' do
       get :index
@@ -21,7 +20,7 @@ RSpec.describe EventsController do
     login_user
     context 'valid attributes' do
       let(:attrs) { attributes_for(:event) }
-      
+
       it 'creates new event' do
         expect do
           post :create, params: { event: attrs }
@@ -47,7 +46,7 @@ RSpec.describe EventsController do
 
   describe 'GET #edit' do
     let(:attrs) { attributes_for(:event) }
-    let!(:user) {create(:user) }
+    let!(:user) { create(:user) }
     let!(:event) { create(:event, user: user) }
 
     it 'renders #edit form' do
@@ -59,7 +58,7 @@ RSpec.describe EventsController do
   describe 'PATCH #update' do
     context 'valid attributes' do
       let(:attrs) { attributes_for(:event, :valid_edit) }
-      let!(:user) {create(:user) }
+      let!(:user) { create(:user) }
       let!(:event) { create(:event, user: user) }
 
       it 'updates event' do
@@ -76,7 +75,7 @@ RSpec.describe EventsController do
 
     context 'invalid attributes' do
       let(:attrs) { attributes_for(:event, :invalid) }
-      let!(:user) {create(:user) }
+      let!(:user) { create(:user) }
       let!(:event) { create(:event, user: user) }
 
       it 'render edit form' do

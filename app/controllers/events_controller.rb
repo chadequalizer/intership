@@ -52,6 +52,6 @@ class EventsController < ApplicationController
                                   :end_time,
                                   :organizer_email,
                                   :organizer_telegram,
-                                  :link,)
+                                  :link)
   end
 end

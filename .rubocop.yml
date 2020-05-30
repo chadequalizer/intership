@@ -12,3 +12,9 @@ Style/SymbolArray:
 Metrics/BlockLength:
   Exclude:
     - spec/controllers/events_controller_spec.rb
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/controllers/users/*
