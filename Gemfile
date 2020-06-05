@@ -10,7 +10,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.3.5'
 gem 'kaminari'
 gem 'pg', '~> 1.2.3'
-gem 'pry', '~> 0.12.2'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'rails-controller-testing'
@@ -29,6 +28,7 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'pry', '~> 0.12.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
