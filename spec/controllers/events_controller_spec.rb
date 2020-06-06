@@ -2,9 +2,19 @@ require 'rails_helper'
 
 RSpec.describe EventsController do
   describe 'GET #index' do
-    it 'render index' do
-      get :index
-      expect(response).to render_template('index')
+    context 'for logged in' do
+      login_user
+      it 'render index' do
+        get :index
+        expect(response).to render_template('index')
+      end
+    end
+
+    context 'not signed in' do
+      it 'redirect to sign_in' do
+        get :index
+        expect(response).to redirect_to('/users/sign_in')
+      end
     end
   end
 
