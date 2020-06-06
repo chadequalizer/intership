@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
 
   def index
-    @events = Event.order(:start_time).page params[:page]
+    @events = current_user.events.order(:start_time).page params[:page]
   end
 
   def new
