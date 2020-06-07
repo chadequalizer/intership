@@ -1,4 +1,12 @@
 <h1><%= t('events.header.all') %></h1>
+<%= javascript_include_tag "rails-ujs" %>
+
+<%=
+        link_to_if(current_user.nil?, t('events.button.sign_in_up'), new_user_session_path) do
+            link_to(t('events.button.sign_out'), destroy_user_session_path, method: :delete)
+        end
+%>
+<br>
 <%= link_to t('events.button.new'), new_event_path %>
 
 <table>

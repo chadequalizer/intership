@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @events = Event.order(:start_time).page params[:page]
+    @events = current_user.events.order(:start_time).page params[:page]
   end
 
   def new
@@ -9,10 +11,15 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    if @event.user_id == current_user.id
+      @event = Event.find(params[:id])
+    else
+      redirect_to events_path, notice: t('events.notice.no_acces')
+    end
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: t('events.notice.new')
@@ -27,19 +34,25 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-
-    if @event.update(event_params)
-      redirect_to @event, notice: t('events.notice.edit')
+    if @event.user_id == current_user.id
+      if @event.update(event_params)
+        redirect_to @event, notice: t('events.notice.edit')
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      redirect_to events_path, notice: t('events.notice.no_acces')
     end
   end
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
-
-    redirect_to events_path, notice: t('events.notice.delete')
+    if @event.user_id == current_user.id
+      @event.destroy
+      redirect_to events_path, notice: t('events.notice.delete')
+    else
+      redirect_to events_path, notice: t('events.notice.no_acces')
+    end
   end
 
   private

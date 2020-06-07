@@ -6,6 +6,8 @@ en:
       delete: Delete
       new: New Event
       back: Back
+      sign_in_up: Sign in/Sign Up
+      sign_out: Sign Out
     header:
       edit: Edit Event
       new: New Event
@@ -14,10 +16,11 @@ en:
       delete: Event deleted
       edit: Event edited
       new: Event created
+      no_acces: You have no access
   activerecord:
     errors:
       messages:
-        invalid_email: Must be given
+        invalid_title: Must be given
         invalid_email: Invalid email adress
         invalid_telegram: Invalid telegram
         start_before_end: Must be before End Time
@@ -31,3 +34,51 @@ en:
       organizer_email: Organizer email
       organizer_telegram: Organizer telegram
       link: Link
+  users:
+    button:
+      resend: Resend confirmation instructions
+      confirmation: Confirm my account
+      password_change: Change my password
+      unlock_account: Unlock my account
+      send_reset_password: Send me reset password instructions
+      cancel_account: Cancel my account
+      back: Back
+      log_in: Log in
+      sign_up: Sign up
+      forgot_password: Forgot your password?
+      recieve_conformation_instructions: Didn't receive confirmation instructions?
+      recieve_unlock_instructions: Didn't receive unlock instructions?
+      resend_unlock_instruckions: Resend unlock instructions
+    labels:
+      email: email
+      new_password: New password
+      password_confirm: Confirm your new password
+    header:
+      confirmation: Resend confirmation instructions
+      confirmation_instructions: "Welcome %{email} !"
+      email_changed: "Hello %{email} !"
+      password_change: Change your password
+      forgot_password: Forgot your password?
+      edit: Edit
+      cancel_account: Cancel my account
+      sign_up: Sign up
+      log_in: Log in
+      resend_unlock_instruckions: Resend unlock instructions
+    body:
+      confirmation_instructions: You can confirm your account email through the link below
+      email_changed:
+        email_confirmed: "We're contacting you to notify you that your email has been changed to %{email}."
+        email_unconfirmed: "We're contacting you to notify you that your email is being changed to %{email}."
+      password_change: We're contacting you to notify you that your password has been changed.
+      reset_password:
+        someone_request: Someone has requested a link to change your password. You can do this through the link below.
+        if_not_you: If you didn't request this, please ignore this email.
+        password_wont_change: Your password won't change until you access the link above and create a new one.
+      unlock_instructions:
+        account_locked: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+        click_link: "Click the link below to unlock your account:"
+      waiting_information: "Currently waiting confirmation for:"
+    hint:
+      minimum_password_length: "%{minimum_password_length} characters minimum"
+      blank_password: leave it blank if you don't want to change it
+      current_password: we need your current password to confirm your changes
