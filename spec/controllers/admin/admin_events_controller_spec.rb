@@ -35,7 +35,7 @@ RSpec.describe Admin::EventsController do
       let!(:event) { create(:event, user: user) }
 
       it 'redirect to sign in' do
-        get :edit, params: { id: Event.last.id}
+        get :edit, params: { id: Event.last.id }
         expect(response).to redirect_to('/admins/sign_in')
       end
     end
