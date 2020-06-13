@@ -1,18 +1,13 @@
 <h1><%= t('events.header.all') %></h1>
+<%= javascript_include_tag "rails-ujs" %>
 
-<%=
-        link_to_if(current_user.nil?, t('events.button.sign_in_up'), new_user_session_path) do
-            link_to(t('events.button.sign_out'), destroy_user_session_path, method: :delete)
-        end
-%>
-<br>
-<%= link_to t('events.button.new'), new_event_path %>
 
 <table>
   <tr>
     <th><%= t('simple_form.labels.title') %></th>
     <th><%= t('simple_form.labels.description') %></th>
     <th><%= t('simple_form.labels.location') %></th>
+    <th><%= t('simple_form.labels.user_id') %></th>
     <th><%= t('simple_form.labels.start_time') %></th>
     <th><%= t('simple_form.labels.end_time') %></th>
     <th><%= t('simple_form.labels.organizer_email') %></th>
@@ -23,17 +18,18 @@
 
   <% @events.each do |event| %>
     <tr>
-      <td><%= link_to event.title, event_path(event) %></td>
+      <td><%= link_to event.title, admin_event_path(event) %></td>
       <td><%= event.description %></td>
       <td><%= event.location %></td>
+      <td><%= event.user_id%></td>
       <td><%= event.start_time %></td>
       <td><%= event.end_time %></td>
       <td><%= event.organizer_email %></td>
       <td><%= event.organizer_telegram %></td>
       <td><%= link_to event.link, event.link %></td>
-      <td><%= link_to t('events.button.show'), event_path(event) %></td>
-      <td><%= link_to t('events.button.edit'), edit_event_path(event) %></td>
-      <td><%= button_to t('events.button.delete'), event_path(event),
+      <td><%= link_to t('events.button.show'), admin_event_path(event) %></td>
+      <td><%= link_to t('events.button.edit'), edit_admin_event_path(event) %></td>
+      <td><%= button_to t('events.button.delete'), admin_event_path(event),
               method: :delete%></td>
     </tr>
   <% end %>

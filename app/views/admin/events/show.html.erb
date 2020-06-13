@@ -1,0 +1,47 @@
+<p>
+  <strong><%= t('simple_from.labels.title') %>:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.description') %>:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.location') %>:</strong>
+  <%= @event.location %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.user_id') %>:</strong>
+  <%= @event.user_id %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.start_time') %>:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.end_time') %>:</strong>
+  <%= @event.end_time %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.organizer_email') %>:</strong>
+  <%= @event.organizer_email %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.organizer_telegram') %>:</strong>
+  <%= @event.organizer_telegram %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.link') %>:</strong>
+  <%= link_to @event.link, @event.link %>
+</p>
+
+<%= link_to t('events.button.edit'), edit_admin_event_path(@event) %> 
+<%= link_to t('events.button.back'), admin_events_path %>

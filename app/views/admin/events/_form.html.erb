@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, @event] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text%>
+  <%= f.input :location%>
+  <%= f.input :start_time, as: :datetime %>
+  <%= f.input :end_time, as: :datetime %>
+  <%= f.input :organizer_email %>
+  <%= f.input :organizer_telegram %>
+  <%= f.input :link %>
+  <%= f.button :submit %>
+<% end %>

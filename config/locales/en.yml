@@ -34,6 +34,7 @@ en:
       organizer_email: Organizer email
       organizer_telegram: Organizer telegram
       link: Link
+      user_id: 'User ID'
   users:
     button:
       resend: Resend confirmation instructions
