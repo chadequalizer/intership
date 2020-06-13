@@ -1,30 +1,24 @@
 class Admin::EventsController < Admin::BaseController
   before_action :authenticate_admin!
+  before_action :find_event, except: :index
 
   def index
     @events = Event.order(:start_time).page params[:page]
   end
 
-  def edit
-    @event = Event.find(params[:id])
-  end
+  def edit; end
 
-  def show
-    @event = Event.find(params[:id])
-  end
+  def show; end
 
   def update
-    @event = Event.find(params[:id])
-
     if @event.update(event_params)
-      redirect_to [:admin, @event], notice: t('events.notice.edit')
+      redirect_to admin_event_path, notice: t('events.notice.edit')
     else
       render 'edit'
     end
   end
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
     redirect_to admin_events_path, notice: t('events.notice.delete')
   end
@@ -40,5 +34,9 @@ class Admin::EventsController < Admin::BaseController
                                   :organizer_email,
                                   :organizer_telegram,
                                   :link)
+  end
+
+  def find_event
+    @event = Event.find(params[:id])
   end
 end
