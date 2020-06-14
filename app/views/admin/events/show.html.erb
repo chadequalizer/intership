@@ -43,5 +43,13 @@
   <%= link_to @event.link, @event.link %>
 </p>
 
+<p>
+  <strong><%= t('simple_from.labels.status') %>:</strong>
+  <%= @event.aasm_state %>
+</p>
+
+<%= button_to t('events.button.approve'), approve_admin_event_path, method: :put %>
+<%= button_to t('events.button.decline'), decline_admin_event_path, method: :put %>
+<br>
 <%= link_to t('events.button.edit'), edit_admin_event_path(@event) %> 
 <%= link_to t('events.button.back'), admin_events_path %>

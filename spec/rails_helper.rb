@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'simplecov'
 require 'devise'
 require_relative 'support/controller_macros'
+require 'aasm/rspec'
 
 SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'

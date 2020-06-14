@@ -1,4 +1,19 @@
 class Event < ApplicationRecord
+  include AASM
+
+  aasm column: :aasm_state do
+    state :pending, initial: true
+    state :approved, :declined
+
+    event :approve do
+      transitions from: :pending, to: :approved
+    end
+
+    event :decline do
+      transitions from: :pending, to: :declined
+    end
+  end
+
   belongs_to :user
   validates :title, presence: { message: :invalid_title }
   validates :organizer_email, format: {
@@ -9,7 +24,7 @@ class Event < ApplicationRecord
                                            message: :invalid_telegram },
                                  allow_blank: true
   validate :start_before_end
-  paginates_per 5
+  paginates_per 10
 
   def start_before_end
     errors.add(:start_time, :start_before_end) if start_time > end_time

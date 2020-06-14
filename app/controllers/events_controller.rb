@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_event, only: [:edit, :show, :update, :destroy]
+  before_action :check_approve, only: [:edit, :show, :update, :destroy]
 
   def index
-    @events = current_user.events.order(:start_time).page params[:page]
+    @events = current_user.events.order(:start_time).approved.page params[:page]
   end
 
   def new
@@ -10,7 +12,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
     if @event.user_id == current_user.id
       @event = Event.find(params[:id])
     else
@@ -28,12 +29,9 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-    @event = Event.find(params[:id])
-  end
+  def show; end
 
   def update
-    @event = Event.find(params[:id])
     if @event.user_id == current_user.id
       if @event.update(event_params)
         redirect_to @event, notice: t('events.notice.edit')
@@ -46,7 +44,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
     if @event.user_id == current_user.id
       @event.destroy
       redirect_to events_path, notice: t('events.notice.delete')
@@ -66,5 +63,13 @@ class EventsController < ApplicationController
                                   :organizer_email,
                                   :organizer_telegram,
                                   :link)
+  end
+
+  def find_event
+    @event = Event.find(params[:id])
+  end
+
+  def check_approve
+    redirect_to events_path, notice: t('events.notice.no_acces') if @event.pending? || @event.declined?
   end
 end
