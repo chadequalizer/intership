@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   end
 
   def find_event
-    @event = Event.find(params[:id])
+    @event = current_user.events.approved.find(params[:id])
   end
 
   def check_approve

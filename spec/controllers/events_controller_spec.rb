@@ -136,22 +136,6 @@ RSpec.describe EventsController do
       end
     end
 
-    context 'wrong owner' do
-      login_user
-      let(:attrs) { attributes_for(:event, :valid_edit) }
-      let!(:user) { create(:user) }
-      let!(:event) { create(:event, user: user) }
-
-      it 'wont updates event' do
-        patch :update, params: { id: Event.last.id, event: attrs }
-        expect(Event.last.title).not_to eq attrs[:title]
-      end
-
-      it 'redirect to index' do
-        patch :update, params: { id: Event.last.id, event: attrs }
-        expect(response).to redirect_to events_path
-      end
-    end
   end
 
   describe 'DELETE #destroy' do
