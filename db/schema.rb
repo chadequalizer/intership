@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_144211) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "aasm_state"
+    t.string "state", default: "", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 

@@ -9,7 +9,7 @@
     <th><%= t('simple_form.labels.organizer_email') %></th>
     <th><%= t('simple_form.labels.organizer_telegram') %></th>
     <th><%= t('simple_form.labels.link') %></th>
-    <th><%= t('simple_form.labels.aasm_state') %></th>
+    <th><%= t('simple_form.labels.state') %></th>
     <th></th>
   </tr>
 
@@ -24,7 +24,7 @@
       <td><%= event.organizer_email %></td>
       <td><%= event.organizer_telegram %></td>
       <td><%= link_to event.link, event.link %></td>
-      <td><%= event.aasm_state %></td>
+      <td><%= event.state %></td>
       <td><%= link_to t('events.button.show'), admin_event_path(event) %></td>
       <td><%= link_to t('events.button.edit'), edit_admin_event_path(event) %></td>
       <td><%= button_to t('events.button.delete'), admin_event_path(event),

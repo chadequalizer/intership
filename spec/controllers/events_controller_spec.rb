@@ -77,7 +77,7 @@ RSpec.describe EventsController do
   describe 'GET #edit' do
     context 'user signed in' do
       login_user
-      let!(:event) { create(:event, user: subject.current_user, aasm_state: 'approved') }
+      let!(:event) { create(:event, :approved, user: subject.current_user) }
 
       it 'renders #edit form' do
         get :edit, params: { id: Event.last.id }
@@ -101,7 +101,7 @@ RSpec.describe EventsController do
     context 'valid attributes' do
       login_user
       let(:attrs) { attributes_for(:event, :valid_edit) }
-      let!(:event) { create(:event, user: subject.current_user, aasm_state: 'approved') }
+      let!(:event) { create(:event, :approved, user: subject.current_user) }
 
       it 'updates event' do
         patch :update, params: { id: Event.last.id, event: attrs }
@@ -118,7 +118,7 @@ RSpec.describe EventsController do
     context 'invalid attributes' do
       login_user
       let(:attrs) { attributes_for(:event, :invalid) }
-      let!(:event) { create(:event, user: subject.current_user, aasm_state: 'approved') }
+      let!(:event) { create(:event, :approved, user: subject.current_user) }
 
       it 'render edit form' do
         patch :update, params: { id: Event.last.id, event: attrs }
@@ -157,7 +157,7 @@ RSpec.describe EventsController do
 
   describe 'DELETE #destroy' do
     login_user
-    let!(:event) { create(:event, user: subject.current_user, aasm_state: 'approved') }
+    let!(:event) { create(:event, :approved, user: subject.current_user) }
 
     it 'deletes event' do
       expect do

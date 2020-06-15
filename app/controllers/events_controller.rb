@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def edit
     if @event.user_id == current_user.id
-      @event = Event.find(params[:id])
+      @event = current_user.events.approved.find(params[:id])
     else
       redirect_to events_path, notice: t('events.notice.no_acces')
     end

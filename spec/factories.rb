@@ -13,6 +13,7 @@ FactoryBot.define do
     title { 'new_title' }
     start_time { DateTime.now + 1.hour }
     end_time { DateTime.now + 2.hours }
+    state { 'pending' }
 
     trait :invalid do
       title {}
@@ -24,6 +25,10 @@ FactoryBot.define do
       title { 'very_new_title' }
       start_time { DateTime.now + 1.hour }
       end_time { DateTime.now + 2.hours }
+    end
+
+    trait :approved do
+      state { 'approved' }
     end
   end
 end

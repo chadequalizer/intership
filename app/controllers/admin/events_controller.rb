@@ -48,7 +48,7 @@ class Admin::EventsController < Admin::BaseController
                                   :organizer_email,
                                   :organizer_telegram,
                                   :link,
-                                  :aasm_state)
+                                  :state)
   end
 
   def find_event

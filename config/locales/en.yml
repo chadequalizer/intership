@@ -41,7 +41,7 @@ en:
       organizer_telegram: Organizer telegram
       link: Link
       user_id: 'User ID'
-      aasm_state: Status
+      state: Status
   users:
     button:
       resend: Resend confirmation instructions

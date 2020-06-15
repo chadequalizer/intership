@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   include AASM
 
-  aasm column: :aasm_state do
+  aasm column: :state do
     state :pending, initial: true
     state :approved, :declined
 

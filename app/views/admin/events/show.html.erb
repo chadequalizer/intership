@@ -45,7 +45,7 @@
 
 <p>
   <strong><%= t('simple_from.labels.status') %>:</strong>
-  <%= @event.aasm_state %>
+  <%= @event.state %>
 </p>
 
 <%= button_to t('events.button.approve'), approve_admin_event_path, method: :put %>
