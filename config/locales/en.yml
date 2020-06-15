@@ -8,15 +8,21 @@ en:
       back: Back
       sign_in_up: Sign in/Sign Up
       sign_out: Sign Out
+      approve: APPROVE
+      decline: DECLINE
+      pending: Pending events
     header:
       edit: Edit Event
       new: New Event
       all: All events
+      pending: Pending events
     notice:
       delete: Event deleted
       edit: Event edited
       new: Event created
-      no_acces: You have no access
+      no_access: You have no access
+      approved: Event approved
+      declined: Event declined
   activerecord:
     errors:
       messages:
@@ -35,6 +41,7 @@ en:
       organizer_telegram: Organizer telegram
       link: Link
       user_id: 'User ID'
+      state: Status
   users:
     button:
       resend: Resend confirmation instructions

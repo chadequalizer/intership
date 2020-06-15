@@ -1,9 +1,13 @@
 class Admin::EventsController < Admin::BaseController
   before_action :authenticate_admin!
-  before_action :find_event, except: :index
+  before_action :find_event, except: [:index, :pending]
 
   def index
     @events = Event.order(:start_time).page params[:page]
+  end
+
+  def pending
+    @events = Event.order(:start_time).pending.page params[:page]
   end
 
   def edit; end
@@ -23,6 +27,16 @@ class Admin::EventsController < Admin::BaseController
     redirect_to admin_events_path, notice: t('events.notice.delete')
   end
 
+  def approve
+    @event.approve!
+    redirect_to admin_events_path, notice: t('events.notice.approved')
+  end
+
+  def decline
+    @event.decline!
+    redirect_to admin_events_path, notice: t('events.notice.declined')
+  end
+
   private
 
   def event_params
@@ -33,7 +47,8 @@ class Admin::EventsController < Admin::BaseController
                                   :end_time,
                                   :organizer_email,
                                   :organizer_telegram,
-                                  :link)
+                                  :link,
+                                  :state)
   end
 
   def find_event

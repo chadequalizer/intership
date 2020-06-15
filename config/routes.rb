@@ -6,9 +6,20 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :events
+
   namespace :admin do
     root to: 'events#index'
-    resources :events
+
+    resources :events do
+      member do
+        put :approve
+        put :decline
+      end
+
+      collection do
+        get :pending
+      end
+    end
   end
 
   root to: 'events#index'

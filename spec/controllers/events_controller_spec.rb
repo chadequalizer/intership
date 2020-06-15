@@ -46,10 +46,9 @@ RSpec.describe EventsController do
         end.to change(Event.all, :count).by(1)
       end
 
-      it 'redirects to #show' do
+      it 'redirects to #index' do
         post :create, params: { event: attrs }
-        expect(response).to redirect_to action: :show,
-                                        id: assigns(:event).id
+        expect(response).to redirect_to events_path
       end
     end
 
@@ -77,7 +76,7 @@ RSpec.describe EventsController do
   describe 'GET #edit' do
     context 'user signed in' do
       login_user
-      let!(:event) { create(:event, user: subject.current_user) }
+      let!(:event) { create(:event, :approved, user: subject.current_user) }
 
       it 'renders #edit form' do
         get :edit, params: { id: Event.last.id }
@@ -101,7 +100,7 @@ RSpec.describe EventsController do
     context 'valid attributes' do
       login_user
       let(:attrs) { attributes_for(:event, :valid_edit) }
-      let!(:event) { create(:event, user: subject.current_user) }
+      let!(:event) { create(:event, :approved, user: subject.current_user) }
 
       it 'updates event' do
         patch :update, params: { id: Event.last.id, event: attrs }
@@ -118,7 +117,7 @@ RSpec.describe EventsController do
     context 'invalid attributes' do
       login_user
       let(:attrs) { attributes_for(:event, :invalid) }
-      let!(:event) { create(:event, user: subject.current_user) }
+      let!(:event) { create(:event, :approved, user: subject.current_user) }
 
       it 'render edit form' do
         patch :update, params: { id: Event.last.id, event: attrs }
@@ -136,28 +135,11 @@ RSpec.describe EventsController do
         expect(response).to redirect_to('/users/sign_in')
       end
     end
-
-    context 'wrong owner' do
-      login_user
-      let(:attrs) { attributes_for(:event, :valid_edit) }
-      let!(:user) { create(:user) }
-      let!(:event) { create(:event, user: user) }
-
-      it 'wont updates event' do
-        patch :update, params: { id: Event.last.id, event: attrs }
-        expect(Event.last.title).not_to eq attrs[:title]
-      end
-
-      it 'redirect to index' do
-        patch :update, params: { id: Event.last.id, event: attrs }
-        expect(response).to redirect_to events_path
-      end
-    end
   end
 
   describe 'DELETE #destroy' do
     login_user
-    before { post :create, params: { event: attributes_for(:event) } }
+    let!(:event) { create(:event, :approved, user: subject.current_user) }
 
     it 'deletes event' do
       expect do

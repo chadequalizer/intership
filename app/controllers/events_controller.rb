@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_event, only: [:edit, :show, :update, :destroy]
+  before_action :check_approve, only: [:edit, :show, :update, :destroy]
 
   def index
-    @events = current_user.events.order(:start_time).page params[:page]
+    @events = current_user.events.order(:start_time).approved.page params[:page]
   end
 
   def new
@@ -10,49 +12,32 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
-    if @event.user_id == current_user.id
-      @event = Event.find(params[:id])
-    else
-      redirect_to events_path, notice: t('events.notice.no_acces')
-    end
+    @event = current_user.events.approved.find(params[:id])
   end
 
   def create
     @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to @event, notice: t('events.notice.new')
+      redirect_to events_path, notice: t('events.notice.new')
     else
       render 'new'
     end
   end
 
-  def show
-    @event = Event.find(params[:id])
-  end
+  def show; end
 
   def update
-    @event = Event.find(params[:id])
-    if @event.user_id == current_user.id
-      if @event.update(event_params)
-        redirect_to @event, notice: t('events.notice.edit')
-      else
-        render 'edit'
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: t('events.notice.edit')
     else
-      redirect_to events_path, notice: t('events.notice.no_acces')
+      render 'edit'
     end
   end
 
   def destroy
-    @event = Event.find(params[:id])
-    if @event.user_id == current_user.id
-      @event.destroy
-      redirect_to events_path, notice: t('events.notice.delete')
-    else
-      redirect_to events_path, notice: t('events.notice.no_acces')
-    end
+    @event.destroy
+    redirect_to events_path, notice: t('events.notice.delete')
   end
 
   private
@@ -66,5 +51,13 @@ class EventsController < ApplicationController
                                   :organizer_email,
                                   :organizer_telegram,
                                   :link)
+  end
+
+  def find_event
+    @event = current_user.events.approved.find(params[:id])
+  end
+
+  def check_approve
+    redirect_to events_path, notice: t('events.notice.no_acces') if @event.pending? || @event.declined?
   end
 end
