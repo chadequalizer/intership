@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to @event, notice: t('events.notice.new')
+      redirect_to events_path, notice: t('events.notice.new')
     else
       render 'new'
     end

@@ -46,10 +46,9 @@ RSpec.describe EventsController do
         end.to change(Event.all, :count).by(1)
       end
 
-      it 'redirects to #show' do
+      it 'redirects to #index' do
         post :create, params: { event: attrs }
-        expect(response).to redirect_to action: :show,
-                                        id: assigns(:event).id
+        expect(response).to redirect_to events_path
       end
     end
 
