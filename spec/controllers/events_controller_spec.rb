@@ -135,7 +135,6 @@ RSpec.describe EventsController do
         expect(response).to redirect_to('/users/sign_in')
       end
     end
-
   end
 
   describe 'DELETE #destroy' do
