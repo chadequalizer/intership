@@ -20,7 +20,7 @@ en:
       delete: Event deleted
       edit: Event edited
       new: Event created
-      no_acces: You have no access
+      no_access: You have no access
       approved: Event approved
       declined: Event declined
   activerecord:

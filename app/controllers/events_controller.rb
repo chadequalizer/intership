@@ -12,11 +12,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    if @event.user_id == current_user.id
-      @event = current_user.events.approved.find(params[:id])
-    else
-      redirect_to events_path, notice: t('events.notice.no_acces')
-    end
+    @event = current_user.events.approved.find(params[:id])
   end
 
   def create
@@ -32,24 +28,16 @@ class EventsController < ApplicationController
   def show; end
 
   def update
-    if @event.user_id == current_user.id
-      if @event.update(event_params)
-        redirect_to @event, notice: t('events.notice.edit')
-      else
-        render 'edit'
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: t('events.notice.edit')
     else
-      redirect_to events_path, notice: t('events.notice.no_acces')
+      render 'edit'
     end
   end
 
   def destroy
-    if @event.user_id == current_user.id
-      @event.destroy
-      redirect_to events_path, notice: t('events.notice.delete')
-    else
-      redirect_to events_path, notice: t('events.notice.no_acces')
-    end
+    @event.destroy
+    redirect_to events_path, notice: t('events.notice.delete')
   end
 
   private
