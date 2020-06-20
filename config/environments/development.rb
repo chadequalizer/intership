@@ -21,6 +21,12 @@ Rails.application.configure do
 
   config.active_storage.service = :local
 
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: '33f3ba20b1f57b1c4dadf0c2b6a5d68e-1b6eb03d-e6ba71aa',
+    domain: 'sandbox541ff5e16c004fa0b11aa72e18dc887f.mailgun.org'
+  }
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.action_mailer.raise_delivery_errors = false
