@@ -24,6 +24,8 @@ Rails.application.configure do
 
   config.log_formatter = ::Logger::Formatter.new
 
+  config.action_mailer.delivery_method = :test
+
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
