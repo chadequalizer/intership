@@ -6,6 +6,7 @@ ruby '2.6.3'
 gem 'aasm'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.4.1'
+gem 'config'
 gem 'devise'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.3.5'

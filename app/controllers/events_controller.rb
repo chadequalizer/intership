@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    if EventCreator::CreateEvent.call(current_user, event_params)
+    if EventService::Create.call(current_user, event_params)
       redirect_to events_path, notice: t('events.notice.new')
     else
       render 'new'

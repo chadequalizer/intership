@@ -1,4 +1,6 @@
 Rails.application.configure do
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
   config.cache_classes = false
 
   config.eager_load = false
@@ -24,9 +26,5 @@ Rails.application.configure do
 
   config.active_support.deprecation = :stderr
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-    api_key: '33f3ba20b1f57b1c4dadf0c2b6a5d68e-1b6eb03d-e6ba71aa',
-    domain: 'sandbox541ff5e16c004fa0b11aa72e18dc887f.mailgun.org'
-  }
+  config.action_mailer.delivery_method = :test
 end

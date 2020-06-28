@@ -22,11 +22,18 @@ RSpec.describe Event, type: :model do
 
   describe 'states' do
     let!(:user) { create(:user) }
+    let!(:admin) { create(:admin) }
     subject { build(:event, user: user) }
 
     context 'when created' do
       it 'has pending state' do
         expect(subject).to have_state(:pending)
+      end
+
+      it 'sends mail to admin' do
+        expect do
+          EventCreatedMail.run(subject)
+        end.to change(ActionMailer::Base.deliveries, :count).by(1)
       end
     end
 

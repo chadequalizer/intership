@@ -1,5 +1,5 @@
-module EventCreator
-  class CreateEvent < ApplicationService
+module EventService
+  class Create < ApplicationService
     def initialize(user, event_params)
       @event_params = event_params
       @user = user
