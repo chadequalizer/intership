@@ -23,6 +23,9 @@ en:
       no_access: You have no access
       approved: Event approved
       declined: Event declined
+    mailer:
+      subject:
+        new_event: 'New event created'
   activerecord:
     errors:
       messages:

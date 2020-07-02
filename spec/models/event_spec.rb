@@ -22,6 +22,7 @@ RSpec.describe Event, type: :model do
 
   describe 'states' do
     let!(:user) { create(:user) }
+    let!(:admin) { create(:admin) }
     subject { build(:event, user: user) }
 
     context 'when created' do

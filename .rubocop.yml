@@ -12,6 +12,7 @@ Style/SymbolArray:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+    - config/**/*
 Layout/LineLength:
   Exclude:
     - config/initializers/devise.rb
