@@ -29,12 +29,6 @@ RSpec.describe Event, type: :model do
       it 'has pending state' do
         expect(subject).to have_state(:pending)
       end
-
-      it 'sends mail to admin' do
-        expect do
-          EventCreatedMail.run(subject)
-        end.to change(ActionMailer::Base.deliveries, :count).by(1)
-      end
     end
 
     context 'transitions from pending' do
