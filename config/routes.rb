@@ -1,8 +1,8 @@
-require "que/web"
+require 'que/web'
 
 Rails.application.routes.draw do
-  mount Que::Web => "/que"
-  
+  mount Que::Web => '/que'
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
