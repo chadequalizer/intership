@@ -7,7 +7,7 @@ module EventService
 
     def call
       @event = @user.events.build(@event_params)
-      EventCreatedMail.run(@event) if @event.save
+      CreateAdminMailWorker.perform_async(@event) if @event.save
     end
   end
 end
