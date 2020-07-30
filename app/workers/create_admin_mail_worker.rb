@@ -1,5 +1,6 @@
 class CreateAdminMailWorker
   include Sidekiq::Worker
+  sidekiq_options
 
   def perform(event)
     @event = event

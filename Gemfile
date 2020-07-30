@@ -46,6 +46,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.17.1', require: false
   gem 'webdrivers'
+  gem 'rspec-sidekiq'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
