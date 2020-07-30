@@ -18,9 +18,9 @@ RSpec.describe EventService::Create do
       end
 
       it 'run mail job' do
-        expect {
+        expect do
           described_class.call(user, attrs)
-        }.to change(CreateAdminMailWorker.jobs, :size).by(1)
+        end.to change(CreateAdminMailWorker.jobs, :size).by(1)
       end
     end
 

@@ -5,6 +5,7 @@ RSpec.describe CreateAdminMailWorker do
   subject { described_class.new }
   let!(:user) { create(:user) }
   let!(:event) { build(:event, user: user) }
+  let!(:admin) { create(:admin) }
 
   context '#perform' do
     it 'notifies admin' do

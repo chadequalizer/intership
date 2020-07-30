@@ -43,10 +43,10 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'rspec-sidekiq'
   gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.17.1', require: false
   gem 'webdrivers'
-  gem 'rspec-sidekiq'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
