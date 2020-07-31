@@ -18,9 +18,11 @@ gem 'que'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'rails-controller-testing'
 gem 'rails-i18n'
+gem 'redis'
 gem 'rest-client'
 gem 'rubocop', require: false
 gem 'sass-rails', '>= 6'
+gem 'sidekiq'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
@@ -41,6 +43,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'rspec-sidekiq'
   gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.17.1', require: false
   gem 'webdrivers'

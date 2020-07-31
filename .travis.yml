@@ -1,6 +1,7 @@
 language: ruby
 services: 
   - postgresql
+  - redis-server
 addons:
   postgresql: "12"
   apt:
