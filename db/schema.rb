@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 2020_06_14_144211) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "events", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title", null: false
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_144211) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "state", default: "", null: false
+    t.string "state", default: "pending", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
