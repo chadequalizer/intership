@@ -7,6 +7,7 @@ FactoryBot.define do
   factory :admin do
     sequence(:email)               { |n| "user#{n}@example.com" }
     sequence(:password)            { |n| "password#{n}" }
+    role { 'superadmin' }
   end
 
   factory :event do

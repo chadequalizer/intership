@@ -93,3 +93,24 @@ en:
       minimum_password_length: "%{minimum_password_length} characters minimum"
       blank_password: leave it blank if you don't want to change it
       current_password: we need your current password to confirm your changes
+  admins:
+    hint:
+      admin_created: 'Admin created'
+      admin_edited: 'Admin edited'
+      admin_deleted: 'Admin deleted'
+    label:
+      id: Id
+      email: Email
+      password: Password
+      role: Role
+    header:
+      index: Admin Users
+      edit: Edit user
+      new: New user
+    button:
+      show: Show
+      edit: Edit
+      delete: Delete
+      new: New Admin
+      back: Back
+      sign_out: 'Sign out'

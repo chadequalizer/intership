@@ -1,0 +1,6 @@
+<%= simple_form_for [:admin, @admin] do |f| %>
+  <%= f.input :email, as: :email %>
+  <%= f.input :password, as: :password %>
+  <%= f.input :role, as: :select, collection: Admin.aasm.states.map(&:name) %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,17 @@
+<p>
+  <strong><%= t('admins.label.id') %>:</strong>
+  <%= @admin.id %>
+</p>
+
+<p>
+  <strong><%= t('admins.label.email') %>:</strong>
+  <%= @admin.email %>
+</p>
+
+<p>
+  <strong><%= t('admins.label.role') %>:</strong>
+  <%= @admin.role %>
+</p>
+
+<%= link_to t('admins.button.back'), admin_admins_path %>
+<%= link_to t('admins.button.edit'), edit_admin_admin_path %>

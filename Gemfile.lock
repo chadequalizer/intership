@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aasm (5.0.8)
+    aasm (5.1.0)
       concurrent-ruby (~> 1.0)
     actioncable (6.0.3.1)
       actionpack (= 6.0.3.1)
@@ -60,6 +60,8 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    after_commit_everywhere (0.1.5)
+      activerecord (>= 4.2)
     ast (2.4.0)
     autoprefixer-rails (9.7.6)
       execjs
@@ -89,6 +91,8 @@ GEM
       dry-validation (~> 1.0, >= 1.0.0)
     connection_pool (2.2.3)
     crass (1.0.6)
+    data_migrate (6.3.0)
+      rails (>= 5.0)
     deep_merge (1.2.1)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -210,6 +214,8 @@ GEM
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     que (0.14.3)
     rack (2.2.2)
     rack-proxy (0.6.5)
@@ -373,11 +379,13 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  after_commit_everywhere (~> 0.1, >= 0.1.5)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.4.1)
   byebug
   capybara (>= 2.15)
   config
+  data_migrate
   devise
   factory_bot_rails
   jbuilder (~> 2.7)
@@ -388,6 +396,7 @@ DEPENDENCIES
   pg (~> 1.2.3)
   pry (~> 0.12.2)
   puma (~> 4.1)
+  pundit
   que
   rails (~> 6.0.2, >= 6.0.2.2)
   rails-controller-testing

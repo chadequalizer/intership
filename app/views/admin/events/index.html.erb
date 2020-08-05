@@ -1,5 +1,8 @@
 <h1><%= t('events.header.all') %></h1>
+<td><%= button_to t('admins.button.sign_out'), destroy_admin_session_path,
+              method: :delete%></td>
 <%= link_to t('events.button.pending'), pending_admin_events_path %>
+<%= link_to t('admins.button.admin_users'), admin_admins_path %>
 
 <%= render 'table' %>
 
