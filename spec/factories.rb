@@ -8,6 +8,18 @@ FactoryBot.define do
     sequence(:email)               { |n| "user#{n}@example.com" }
     sequence(:password)            { |n| "password#{n}" }
     role { 'superadmin' }
+
+    trait :moderator do
+      role { 'moderator' }
+    end
+
+    trait :invalid do
+      email { 'qwe123' }
+    end
+
+    trait :valid_edit do
+      email { 'new_mail@gmail.com' }
+    end
   end
 
   factory :event do

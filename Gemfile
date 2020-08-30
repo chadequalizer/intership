@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'pundit-matchers', '~> 1.6.0'
   gem 'rspec-sidekiq'
   gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.17.1', require: false

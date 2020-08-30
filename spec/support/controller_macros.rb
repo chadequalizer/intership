@@ -14,4 +14,12 @@ module ControllerMacros
       sign_in admin
     end
   end
+
+  def login_moderator
+    before(:each) do
+      @request.env['devise.mapping'] = Devise.mappings[:admin]
+      admin = FactoryBot.create(:admin, :moderator)
+      sign_in admin
+    end
+  end
 end
