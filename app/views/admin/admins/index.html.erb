@@ -1,0 +1,26 @@
+<h1><%= t('admins.header.index') %></h1>
+<td><%= button_to t('admins.button.sign_out'), destroy_admin_session_path,
+              method: :delete%></td>
+
+<%= link_to t('admins.button.new'), new_admin_admin_path %>
+
+<table>
+  <tr>
+    <th><%= t('admins.label.id') %></th>
+    <th><%= t('admins.label.email') %></th>
+    <th><%= t('admins.label.role') %></th>
+    <th></th>
+  </tr>
+
+  <% @admins.each do |admin| %>
+    <tr>
+      <td><%= admin.id %></td>
+      <td><%= link_to admin.email, admin_admin_path(admin) %></td>
+      <td><%= admin.role %></td>
+      <td><%= link_to t('admins.button.show'), admin_admin_path(admin) %></td>
+      <td><%= link_to t('admins.button.edit'), edit_admin_admin_path(admin) %></td>
+      <td><%= button_to t('admins.button.delete'), admin_admin_path(admin),
+              method: :delete%></td>
+    </tr>
+  <% end %>
+</table>

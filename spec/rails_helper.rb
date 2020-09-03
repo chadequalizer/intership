@@ -3,6 +3,7 @@ require 'simplecov'
 require 'devise'
 require_relative 'support/controller_macros'
 require 'aasm/rspec'
+require 'pundit/rspec'
 
 SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
@@ -29,4 +30,8 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
   config.extend ControllerMacros, type: :controller
+end
+
+Pundit::Matchers.configure do |config|
+  config.user_alias = :admin
 end

@@ -2,3 +2,5 @@ mailgun:
   apikey: <%= ENV['MAILGUN_API_KEY'] %>
   domain: <%= ENV['MAILGUN_DOMAIN'] %>
   from: <%= ENV['MAILGUN_FROM'] %>
+admins:
+  password: <%= ENV['ADMIN_PASSWORD'] %> 

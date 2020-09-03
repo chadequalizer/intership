@@ -1,6 +1,7 @@
 class Admin::EventsController < Admin::BaseController
   before_action :authenticate_admin!
   before_action :find_event, except: [:index, :pending]
+  after_action :is_authorized, except: [:new]
 
   def index
     @events = Event.order(:start_time).page params[:page]
@@ -23,6 +24,7 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def destroy
+    authorize @event
     @event.destroy
     redirect_to admin_events_path, notice: t('events.notice.delete')
   end

@@ -18,3 +18,5 @@ Layout/LineLength:
     - config/initializers/devise.rb
 Style/ClassAndModuleChildren:
   Enabled: false
+Naming/PredicateName:
+  Enabled: false

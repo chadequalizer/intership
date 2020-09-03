@@ -20,6 +20,8 @@ Rails.application.routes.draw do
         get :pending
       end
     end
+
+    resources :admins
   end
 
   root to: 'events#index'
