@@ -27,6 +27,7 @@ FactoryBot.define do
     start_time { DateTime.now + 1.hour }
     end_time { DateTime.now + 2.hours }
     state { 'pending' }
+    description { 'His dudeness, duder, or el dudorino' }
 
     trait :invalid do
       title {}
@@ -42,6 +43,15 @@ FactoryBot.define do
 
     trait :approved do
       state { 'approved' }
+    end
+  end
+
+  factory :tag do
+    sequence(:name) { |n| "tag#{n}" }
+    keywords { 'keyword, duder' }
+
+    trait :valid_edit do
+      name { 'new_name' }
     end
   end
 end

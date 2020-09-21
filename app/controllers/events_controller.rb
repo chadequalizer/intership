@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @tags = Tag.all.map(&:name)
   end
 
   def edit
@@ -48,7 +49,8 @@ class EventsController < ApplicationController
                                   :end_time,
                                   :organizer_email,
                                   :organizer_telegram,
-                                  :link)
+                                  :link,
+                                  tag_list: [])
   end
 
   def find_event

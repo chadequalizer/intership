@@ -1,0 +1,6 @@
+<%= simple_form_for [:admin, @tag] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :keywords %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to t('tags.button.back'), admin_tags_path %>

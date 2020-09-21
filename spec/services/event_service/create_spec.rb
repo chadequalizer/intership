@@ -5,6 +5,7 @@ RSpec.describe EventService::Create do
     context 'valid params' do
       let!(:user) { create(:user) }
       let(:attrs) { attributes_for(:event) }
+      let!(:tag) { create(:tag) }
 
       it 'creates new event' do
         expect do
@@ -21,6 +22,11 @@ RSpec.describe EventService::Create do
         expect do
           described_class.call(user, attrs)
         end.to change(CreateAdminMailWorker.jobs, :size).by(1)
+      end
+
+      it 'autoassigns tags' do
+        described_class.call(user, attrs)
+        expect(Event.last.tag_list.to_s).to include(tag.name)
       end
     end
 

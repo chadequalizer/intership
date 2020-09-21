@@ -1,0 +1,18 @@
+<%= link_to t('tags.button.new'), new_admin_tag_path %>
+<table>
+  <tr>
+    <th><%= t('simple_form.labels.name') %></th>
+    <th><%= t('simple_form.labels.keywords') %></th>
+  </tr>
+
+  <% @tags.each do |tag| %>
+    <tr>
+      <td><%= tag.name %></td>
+      <td><%= tag.keywords %></td>
+      <td><%= link_to t('tags.button.show'), admin_tag_path(tag) %></td>
+      <td><%= link_to t('tags.button.edit'), edit_admin_tag_path(tag) %></td>
+      <td><%= button_to t('tags.button.delete'), admin_tag_path(tag),
+              method: :delete%></td>
+    </tr>
+  <% end %>
+</table>

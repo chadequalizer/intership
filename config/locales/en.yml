@@ -114,3 +114,16 @@ en:
       new: New Admin
       back: Back
       sign_out: 'Sign out'
+      tags: Tags
+  tags:
+    button:
+      button:
+      show: Show
+      edit: Edit
+      delete: Delete
+      new: New Tag
+      back: Back
+    notice:
+      tag_created: 'tag created'
+      tag_edited: 'tag edited'
+      tag_deleted: 'tag deleted'

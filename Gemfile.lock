@@ -58,6 +58,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts-as-taggable-on (6.5.0)
+      activerecord (>= 5.0, < 6.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     after_commit_everywhere (0.1.5)
@@ -381,6 +383,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  acts-as-taggable-on (~> 6.0)
   after_commit_everywhere (~> 0.1, >= 0.1.5)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.4.1)
