@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 2020_09_11_095653) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "events", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title", null: false
@@ -43,16 +46,6 @@ ActiveRecord::Schema.define(version: 2020_09_11_095653) do
     t.string "state", default: "pending", null: false
     t.string "tag_list"
     t.index ["user_id"], name: "index_events_on_user_id"
-  end
-
-  create_table "que_jobs", primary_key: ["priority", "run_at", "job_id"], comment: "2", force: :cascade do |t|
-    t.integer "priority", default: 100, null: false
-    t.datetime "run_at", default: -> { "now()" }, null: false
-    t.bigserial "job_id", null: false
-    t.text "job_class", null: false
-    t.json "args", default: [], null: false
-    t.integer "error_count", default: 0, null: false
-    t.text "last_error"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
