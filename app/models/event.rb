@@ -15,6 +15,7 @@ class Event < ApplicationRecord
   end
 
   belongs_to :user
+  acts_as_taggable_on :tags
   validates :title, presence: { message: :invalid_title }
   validates :organizer_email, format: {
     with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i,

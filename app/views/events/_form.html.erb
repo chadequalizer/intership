@@ -7,5 +7,6 @@
   <%= f.input :organizer_email %>
   <%= f.input :organizer_telegram %>
   <%= f.input :link %>
+  <%= f.input :tag_list, collection: @tags, as: :check_boxes %>
   <%= f.button :submit %>
 <% end %>

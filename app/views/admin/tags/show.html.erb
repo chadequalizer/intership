@@ -1,0 +1,12 @@
+<p>
+  <strong><%= t('simple_from.labels.name') %>:</strong>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <strong><%= t('simple_from.labels.keywords') %>:</strong>
+  <%= @tag.keywords %>
+</p>
+
+<%= link_to t('tags.button.edit'), edit_admin_tag_path(@tag) %> 
+<%= link_to t('tags.button.back'), admin_tags_path %>

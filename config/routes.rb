@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
 
     resources :admins
+    resources :tags
   end
 
   root to: 'events#index'
