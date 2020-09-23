@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @tags = Tag.all.map(&:name)
+    @tags = Tag.pluck(:name)
   end
 
   def edit
