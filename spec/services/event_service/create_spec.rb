@@ -34,10 +34,10 @@ RSpec.describe EventService::Create do
       let!(:user) { create(:user) }
       let(:attrs) { attributes_for(:event, :invalid) }
 
-      it 'wont creates new event' do
+      it 'raise validation error' do
         expect do
           described_class.call(user, attrs)
-        end.to change(Event.all, :count).by(0)
+        end.to raise_error('Validation failed: Title Must be given')
       end
     end
   end

@@ -54,11 +54,12 @@ RSpec.describe EventsController do
 
     context 'invalid attributes' do
       login_user
+      subject { post :create, params: { event: attrs } }
+
       let(:attrs) { attributes_for(:event, :invalid) }
 
       it 'renders #new form' do
-        post :create, params: { event: attrs }
-        expect(response).to render_template('new')
+        expect { subject }.to raise_error('Validation failed: Title Must be given')
       end
     end
 

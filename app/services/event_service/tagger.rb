@@ -9,7 +9,7 @@ module EventService
       Tag.all.each do |tag|
         @event.tag_list.add(tag) if (@description_array & string_to_array(tag.keywords)).any?
       end
-      @event.save
+      @event.save!
     end
 
     def string_to_array(string)
