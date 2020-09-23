@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe EventService::Tagger do
   describe 'when event created' do
-    let(:user){ create(:user) }
-    let(:event){ create(:event, user: user) }
-    let!(:tag){ create(:tag) }
+    let(:user) { create(:user) }
+    let(:event) { create(:event, user: user) }
+    let!(:tag) { create(:tag) }
 
     it 'autoassigns tags' do
       described_class.call(event)
